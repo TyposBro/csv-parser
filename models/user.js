@@ -1,15 +1,26 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  id: {
-    type: String,
-  },
-  title: {
-    type: String,
-  },
-  genre: {
-    type: Array,
-  },
-});
+const schema = new mongoose.Schema(
+  {
+    // user_id::gender::age::occupation::zip_code
+    id: {
+      type: Number,
+    },
 
-export default mongoose.model("userModel", userSchema);
+    gender: {
+      type: String,
+    },
+    age: {
+      type: Number,
+    },
+    occupation: {
+      type: String,
+    },
+    zip_code: {
+      type: String,
+    },
+  },
+  { _id: false }
+);
+
+export default mongoose.model("user", schema);

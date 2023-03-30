@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
 
-const movieSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
   id: {
-    type: String,
+    type: Number,
+  },
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "movie",
   },
   title: {
     type: String,
@@ -12,4 +16,4 @@ const movieSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("movieModel", movieSchema);
+export default mongoose.model("movie", schema);
