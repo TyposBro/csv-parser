@@ -4,15 +4,14 @@ import { readFile } from "fs";
 
 const _rating = [];
 
-const updateDB = () => console.log("DONE");
+const updateDB = () =>
+  RatingModel.insertMany(_rating)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
 
 const convertAndInsert = (item) =>
   // UserID::MovieID::Rating::Timestamp
-  setTimeout(() => {
-    RatingModel.create({ user_id: item[0], movie_id: item[1], rating: item[2], timestamp: item[3] })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, 1000);
+  _rating.push({ user_id: item[0], movie_id: item[1], rating: item[2], timestamp: item[3] });
 
 const parser = (data, delimiter) =>
   parse(data, { columns: false, trim: true, delimiter })

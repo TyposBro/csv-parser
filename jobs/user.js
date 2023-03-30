@@ -11,9 +11,6 @@ const updateDB = () =>
 
 const convertAndInsert = (item) =>
   // UserID::Gender::Age::Occupation::Zip-code
-  console.log(
-    `id: ${item[0]} gender: ${item[1]} age: ${item[2]} job: ${item[3]} zip: ${item[4]}`
-  ) ||
   user_record.push({
     id: item[0],
     gender: item[1],

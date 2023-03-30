@@ -10,7 +10,6 @@ const updateDB = () =>
     .catch((err) => console.log(err));
 
 const convertAndInsert = (item) =>
-  console.log(`id: ${item[0]} title: ${item[1]} genre: ${item[2]}`) ||
   movie_record.push({ id: item[0], title: item[1], genre: item[2].split("|") });
 
 const parser = (data, delimiter) =>
